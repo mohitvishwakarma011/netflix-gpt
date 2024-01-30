@@ -67,7 +67,7 @@ const Header = () => {
             <option value="sanskrit">sanskrit</option>
           </select>}
 
-          <button onClick={handleShowGptSearch} className="p-2 h-10 my-auto me-3 text-white bg-yellow-400 rounded-lg">{gptSearchPage?"Home":"GPT Search"}</button>
+          <button onClick={handleShowGptSearch} className="p-2 h-10 my-auto me-3 text-white bg-yellow-400 rounded-lg">{gptSearchPage?"Homepage":"GPT Search"}</button>
           <img
             className="w-10 h-10 my-auto mx-2 rounded-3xl"
             src={user?.photoURL}
