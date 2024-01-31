@@ -7,7 +7,7 @@ const VideoBackground = ({ movieId }) => {
     useFetchTrailer(movieId);
   
   return (
-    <div className=" w-screen">
+    <div className="pt-[25%] md:pt-0 w-screen">
       <iframe
         className=" aspect-video w-screen"
         src={

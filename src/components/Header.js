@@ -50,9 +50,9 @@ const Header = () => {
   }
 
   return (
-    <div className="px-12 w-screen py-3 absolute bg-gradient-to-b from-black z-10 flex justify-between">
+    <div className="px-8 w-screen py-3 absolute bg-gradient-to-b from-black z-10  md:flex  md:justify-between ">
       <img
-        className="w-44"
+        className="w-20 md:w-44 mx-auto md:mx-0"
         src={netflix_logo}
         alt="logo"
       ></img>
@@ -67,9 +67,9 @@ const Header = () => {
             <option value="sanskrit">sanskrit</option>
           </select>}
 
-          <button onClick={handleShowGptSearch} className="p-2 h-10 my-auto me-3 text-white bg-yellow-400 rounded-lg">{gptSearchPage?"Homepage":"GPT Search"}</button>
+          <button onClick={handleShowGptSearch} className="p-1 md:p-2 md:h-10 my-auto me-3 text-white bg-yellow-400 rounded-lg">{gptSearchPage?"Homepage":"GPT Search"}</button>
           <img
-            className="w-10 h-10 my-auto mx-2 rounded-3xl"
+            className="hidden md:inline-block w-10 h-10 my-auto mx-2 rounded-3xl"
             src={user?.photoURL}
             alt="User-profile"
           ></img>

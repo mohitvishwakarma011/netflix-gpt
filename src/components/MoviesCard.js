@@ -4,7 +4,7 @@ const MoviesCard = ({poster_path}) => {
 
   let image = poster_path?IMG_CDN_URL+poster_path:defaultImg
   return (
-    <div className="w-48 p-2">
+    <div className="w-32 md:w-48 p-2">
       <img alt="card" src={image}></img>
     </div>
   )

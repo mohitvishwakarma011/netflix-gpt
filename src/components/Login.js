@@ -94,19 +94,19 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="">
       <Header />
-      <div>
+      <div className="">
         <img
           src={BG_URL}
           alt="netflix-banner"
-          className="absolute"
+          className="absolute h-screen object-cover w-screen"
         ></img>
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="absolute bg-black w-3/12 p-12 mx-auto right-0 left-0 top-20 rounded bg-opacity-80"
+          className="absolute  bg-black md:w-3/12 p-4 md:p-12 mx-auto right-0 left-0 top-20 rounded bg-opacity-80"
         >
-          <h2 className="text-white font-bold text-3xl mb-7">
+          <h2 className="text-white font-bold text-xl md:text-3xl mb-3 md:mb-7">
             {isSignInForm ? "Sing In" : "Sing Up"}
           </h2>
 
@@ -115,7 +115,7 @@ const Login = () => {
               ref={name}
               text="text"
               placeholder="Full Name"
-              className="p-2 m-2  w-full bg-gray-800 text-gray-300 rounded"
+              className="p-2 mx-0 my-2  w-full bg-gray-800 text-gray-300 rounded"
             ></input>
           )}
 
@@ -123,20 +123,20 @@ const Login = () => {
             ref={email}
             text="text"
             placeholder="Email Address"
-            className="p-2 m-2 w-full bg-gray-800 text-gray-300 rounded"
+            className="p-2 mx-0 my-2 w-full bg-gray-800 text-gray-300 rounded"
           ></input>
           <input
             ref={password}
             text="password"
             placeholder="Password"
-            className="p-2 m-2 w-full bg-gray-800 text-gray-300 rounded"
+            className="p-2 mx-0 my-2 w-full bg-gray-800 text-gray-300 rounded"
           ></input>
 
           <p className="text-red-600 p-2">{errorMessage}</p>
 
           <button
             onClick={handleButtonClick}
-            className="p-2 mx-2 my-3 text-white bg-red-600 w-full rounded"
+            className="p-2 mx-0  my-3 text-white bg-red-600 w-full rounded"
           >
             {isSignInForm ? "Sing In" : "Sing Up"}
           </button>

@@ -57,9 +57,9 @@ const GptSearchBar = () => {
     <div className="pt-[10%] flex justify-center flex-col ">
       <div className="w-screen text-center">
 
-      <form onSubmit={(e)=>e.preventDefault()} className="w-1/2 bg-black grid grid-cols-12 m-auto">
-        <input ref={searchText} className="p-4 m-4 col-span-9" type="text" placeholder={langs[language].gptSearchPlaceholder}></input>
-        <button onClick={handleGptSearchClick} className="col-span-3 m-4 py-2 px-4 bg-red-700 text-white rounded-lg">{langs[language].search}</button>
+      <form onSubmit={(e)=>e.preventDefault()} className="w-full md:w-1/2 bg-black grid grid-cols-12 m-auto">
+        <input ref={searchText} className="p-2 md:p-4 m-4 col-span-9" type="text" placeholder={langs[language].gptSearchPlaceholder}></input>
+        <button onClick={handleGptSearchClick} className="col-span-3 my-4 me-2 md:m-4 py-0 md:py-2 px-0 bg-red-700 text-white rounded-lg">{langs[language].search}</button>
       </form>
       </div>
       {errorGptResult && <p className="text-xl font-bold text-red-700 z-50 text-center bg-slate-800 rounded-md mx-auto my-2 p-2">Error while fetching Data!</p>}
