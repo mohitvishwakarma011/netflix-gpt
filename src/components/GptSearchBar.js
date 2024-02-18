@@ -66,5 +66,5 @@ const GptSearchBar = () => {
     </div>
   )
 }
-
+ 
 export default GptSearchBar

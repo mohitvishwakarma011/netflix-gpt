@@ -16,3 +16,5 @@
  - NetflixGPT
     -Search Bar
     - Movie Suggestions
+
+## Firebase is batching createUserWithEmailAndPassword and updateProfile => and providing the updated result to onAuthStateChanged subsequently making call to firebase to create and update data.

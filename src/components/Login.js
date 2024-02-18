@@ -4,18 +4,19 @@ import { checkValidate } from "../utils/validate";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  updateProfile 
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import {useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { BG_URL, my_photo } from "../utils/constants";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const name = useRef(null);
   const email = useRef(null);
@@ -46,20 +47,24 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          
-          //*update User to store name 
+
+          //*update User to store name
           updateProfile(user, {
-            displayName: name.current.value, photoURL: {my_photo}
-          }).then(() => {
-            // Profile updated!
-            
-            const {uid,email,displayName,photoURL} = auth.currentUser;
+            displayName: name.current.value,
+            photoURL: my_photo,
+          })
+            .then(() => {
+              // Profile updated!
 
-            dispatch(addUser({uid,email,displayName,photoURL}));
-          }).catch((error) => {
-            // An error occurred
-          });
+              const { uid, email, displayName, photoURL } = auth.currentUser;
 
+              dispatch(addUser({ uid, email, displayName, photoURL }));
+              // navigate("/browse");
+            })
+            .catch((error) => {
+              // An error occurred
+              console.log("Update function error " + error);
+            });
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -76,13 +81,13 @@ const Login = () => {
       )
         .then((userCredential) => {
           //* Signed in
-          
-          //*update User to store name 
 
-          const {uid,email,displayName,photoURL} = userCredential.user;
+          //*update User to store name
 
-            dispatch(addUser({uid,email,displayName,photoURL}));
-        
+          const { uid, email, displayName, photoURL } = userCredential.user;
+
+          dispatch(addUser({ uid, email, displayName, photoURL }));
+          // navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -99,7 +104,7 @@ const Login = () => {
       <div className="">
         <img
           src={BG_URL}
-          alt="netflix-banner"
+          alt="netflix-back-banner"
           className="absolute h-screen object-cover w-screen"
         ></img>
         <form
